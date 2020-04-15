@@ -2,7 +2,7 @@
 
 .byu-group {
 	display: inline-block;
-	width: 30%;
+	width: 30.9%;
 }
 
 .byu-group label {
@@ -23,4 +23,32 @@
 	float: left;
 }
 
+// Patch for missing appearance css extensions
 
+@mixin range-thumb {
+  background: $color-gray-lightest;
+  box-shadow: 0 0 0 1px $color-gray-medium;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+#BYUJobScriptGenerator {
+	input, textarea, select {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	[type=range] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+
+		&::-webkit-slider-thumb {
+    			@include range-thumb;
+    			appearance: none;
+    			-webkit-appearance: none;
+    			margin-top: -0.6rem;
+		}
+	}
+}
